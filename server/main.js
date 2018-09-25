@@ -8,37 +8,42 @@ Meteor.startup(() => {
 });
 
 Meteor.methods({
-    "stylist.add": function(loc) {
+    "stylist.add": function(userData) {
         console.log("Working");
 
-        var user = this.userId;
-        if (!user) {
-            console.log("user not signed in");
-            return;
-        }
-        console.log("Adding Stylist...");
-        var range = 0.035;
-        var range1 = Math.random() > 0.5 ? range : -range;
-        var range2 = Math.random() > 0.5 ? range : -range;
-        var long = loc.longitude;
+        // var user = this.userId;
+        // if (!user) {
+        //     console.log("user not signed in");
+        //     return;
+        // }
+        // console.log("Adding Stylist...");
+        // var range = 0.035;
+        // var range1 = Math.random() > 0.5 ? range : -range;
+        // var range2 = Math.random() > 0.5 ? range : -range;
+        // var long = loc.longitude;
 
-        long = long + Math.random() * range1;
-        var lat = loc.latitude;
-        lat = lat + Math.random() * range2;
+        // long = long + Math.random() * range1;
+        // var lat = loc.latitude;
+        // lat = lat + Math.random() * range2;
 
-        // var iconPath = process.env.PWD + "/public";
-        // var icons = fs.readdirSync(iconPath);
+        // // var iconPath = process.env.PWD + "/public";
+        // // var icons = fs.readdirSync(iconPath);
 
-        var min = Math.ceil(0);
-        var max = Math.ceil(250);
-        var random = Math.floor(Math.random() * (max - min)) + min;
+        // var min = Math.ceil(0);
+        // var max = Math.ceil(250);
+        // var random = Math.floor(Math.random() * (max - min)) + min;
 
         return Stylist.insert({
-            image: "test",
-            longitude: long,
-            latitude: lat
+            userData
         });
 
         return Stylists.insert({ image: icons });
     }
+    // "stylist.update": function(userData) {
+    //     Stylist.update(
+    //         { $_id: userData.userId },
+    //         { userData: { userData } },
+    //         { multi: true }
+    //     );
+    // }
 });
