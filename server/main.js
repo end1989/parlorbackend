@@ -36,14 +36,19 @@ Meteor.methods({
         return Stylist.insert({
             userData
         });
-
-        return Stylists.insert({ image: icons });
-    }
+    },
     // "stylist.update": function(userData) {
     //     Stylist.update(
     //         { $_id: userData.userId },
     //         { userData: { userData } },
     //         { multi: true }
     //     );
-    // }
+    // },
+    "stylist.update": function(updateInfo) {
+        Stylist.update({ _id: updateInfo.id }, { userData: { ...updateInfo } });
+
+        // return Stylist.find({
+        //     userData
+        // });
+    }
 });
