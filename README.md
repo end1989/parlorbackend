@@ -1,7 +1,5 @@
 # parlorbackend
 
-# parlorfrontend
-
 MVP - App for hairstylist to have profiles - photos - reviews - schedule
 Project Description
 
